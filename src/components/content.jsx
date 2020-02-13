@@ -16,7 +16,8 @@ class Content extends Component {
         searchQuery: '',
         searchYear: '',
         result: {},
-        isOpen: true,
+        isOpen: false,
+        id: '',
     }
 
     componentDidMount() {
@@ -54,8 +55,8 @@ class Content extends Component {
         this.setState({ result });
     }
 
-    openModal = (e) => {
-        this.setState({ isOpen: true });
+    openModal = (imdbID) => {
+        this.setState({ isOpen: true, id: imdbID })
     }
 
     handleCancel = () => {
@@ -64,10 +65,11 @@ class Content extends Component {
     }
 
     render() {
-        const { searchQuery, searchYear, result } = this.state;
+        const { searchQuery, searchYear, result, id } = this.state;
         const { Search = [] } = result
 
         console.log(result);
+        console.log(id);
 
         return (
             <>
@@ -92,7 +94,7 @@ class Content extends Component {
                                     title={Title}
                                     year={Year}
                                     posterUrl={(Poster === 'N/A') ? '' : Poster}
-                                    onClick={() => this.openModal()}
+                                    onClick={()=>this.openModal(imdbID)}
                                 />
                             </>
                         )
@@ -103,6 +105,7 @@ class Content extends Component {
                     title=""
                     isOpen={this.state.isOpen}
                     onCancel={this.handleCancel}
+                    details={this.state.id}
                 />
             </>
         );

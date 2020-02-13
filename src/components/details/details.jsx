@@ -1,8 +1,10 @@
 import React from 'react';
 
 const Details = ({ 
+  details,
     title, director, actors, released, boxOffice, country, genre, runtime, plot, imdbRating, year, posterUrl 
-}) => (
+}) => {
+  return (
     <li className="item">
       <div className="description">
         <span className="title">{title}</span>
@@ -19,6 +21,6 @@ const Details = ({
         <img src={posterUrl} alt={title}/>
       </div>
     </li>
-  );
+  );}
 
   export default Details;

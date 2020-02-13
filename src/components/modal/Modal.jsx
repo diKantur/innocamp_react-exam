@@ -9,7 +9,7 @@ import Details from '../details/details';
 import './Modal.css';
 
 const Modal = ({
-  id, title, isOpen, onCancel, ...attrs
+  id, title, isOpen, onCancel, details, ...attrs
 }) => {
 
   return (
@@ -23,10 +23,10 @@ const Modal = ({
                 <Icon name="times" onClick={onCancel} />
               </div>
               <div className="modalBody">
-                <Details/>
+                <Details details={details}/>
               </div>
               <div className="modalFooter">
-                <Button onClick={onCancel} invert>Close</Button>
+                <Button onClick={onCancel}>Close</Button>
               </div>
             </div>
           </div>
