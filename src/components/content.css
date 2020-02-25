@@ -6,4 +6,14 @@ header {
 ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
+}
+
+li {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    height: 100%
+}
